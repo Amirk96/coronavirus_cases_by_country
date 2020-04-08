@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+  <head>
+    <title>{% block title %}base{% endblock %}</title>
+    <style>
+    body {
+      background-image: url("{% static 'cases_by_country/images/unsplash.jpg' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    </style>
+    {% block contenthead %}{% endblock %}
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+</html>
