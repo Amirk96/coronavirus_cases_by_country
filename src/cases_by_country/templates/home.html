@@ -1,7 +1,13 @@
+<html>
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Home{% endblock %}
-{% block contenthead %}{% endblock %}
-{% block content %}
-{{ dic.statistic_taken_at }}
-{% endblock %}
+<title>{% block title %}Home{% endblock %}</title>
+<head>{% block contenthead %}{% endblock %}</head>
+<body>()
+  {% block content %}
+      {% for k in countries_stat %}
+        {{ k.country_name }} : {{ k.active_cases }}<br>
+      {% endfor %}
+  {% endblock %}
+</body>
+</html>

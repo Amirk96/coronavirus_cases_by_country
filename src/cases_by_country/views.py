@@ -9,6 +9,18 @@ import requests, re
 # })
 # str = cases.text
 # country = re.findall(r"country_name\":\"(\w+)",str)
+def statistic(dic):
+    d = []
+    i = 10
+    while(i != 0):
+        for k in dic['countries_stat'][10-i]:
+            for e in dic['countries_stat'][10-i][k]:
+                if e == ',':
+                    d.append(e + '<br>')  # print(e)
+                else:
+                    d.append(e) #print(e, end="")
+        i-=1
+        return d
 
 def home(request):
     cases = requests.get(
@@ -17,9 +29,8 @@ def home(request):
     "X-RapidAPI-Host":"coronavirus-monitor.p.rapidapi.com",
     "X-RapidAPI-Key":"65b8fe815amshf5a6a02cb1f36c4p19b3e8jsn6ba08bcc824f"
     })
-    dic = {}
-    dic = cases.json()
-    #str = cases.text
+    dic= {}
+    dic = cases.json()    #str = cases.text
     #country = re.findall(r"country_name\":\"(\w+)",str)
     # #re.sub(r"\',","\s", country)
     # #for lst in country:

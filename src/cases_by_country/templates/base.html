@@ -2,9 +2,10 @@
 {% load static %}
   <head>
     <title>{% block title %}base{% endblock %}</title>
+    <!--background-image: url("{% static 'cases_by_country/images/unsplash.jpg' %}");-->
     <style>
     body {
-      background-image: url("{% static 'cases_by_country/images/unsplash.jpg' %}");
+
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -12,6 +13,6 @@
     {% block contenthead %}{% endblock %}
   </head>
   <body>
-    {% block content %}{% endblock %}
+    {% block content %}{% endblock %}    
   </body>
 </html>
