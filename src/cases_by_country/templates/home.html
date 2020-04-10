@@ -1,7 +1,7 @@
 <html>
 {% extends "base.html" %}
 {% load static %}
-<title>{% block title %}Home{% endblock %}</title>
+<title>{% block title %}Corona{% endblock %}</title>
 {% block contenthead %}
     <link rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -19,30 +19,40 @@
 {% endblock %}
 <body>
    {% block content %}
-     <!-- {% for k in countries_stat %}
-        {{ k.country_name }} : {{ k.active_cases }}<br>
-      {% endfor %}-->
-      {{ countries_stat.0.country_name }}
-      <div class="container-fluid h-100">
-          <header class="row h-25">
-              <div class="col-12">
-              </div>
-          </header>
-          <div class="row h-25 h3">
-              <div class="col-lg-6 col-sm-1"></div>
-              <div class="col-lg-4 col-sm-11">
-                  <p class= "text-left font-weight-bold text-primary">Country : {{ countries_stat.0.country_name }}</p><br>
-                  <p class= "text-left font-weight-bold text-warning">Cases : {{ countries_stat.0.cases }}</p><br>
-                  <p class= "text-left font-weight-bold text-danger">Deaths : {{ countries_stat.0.deaths }}</p><br>
-                  <p class= "text-left font-weight-bold text-success">Total recovered : {{ countries_stat.0.total_recovered }}</p><br>
-                  <p class= "text-left font-weight-bold"></p>
-              </div>
-              <div class="col-2 col-sm-1"></div>
-          </div>
-          <footer class="row">
-              <div class="col-12"></div>
-          </footer>
-      </div>
-  {% endblock %}
+   <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Country Name</th>
+          <th scope="col">Cases</th>
+          <th scope="col">Deaths</th>
+          <th scope="col">Region</th>
+          <th scope="col">Total Recovered</th>
+          <th scope="col">New Deaths</th>
+          <th scope="col">New Cases</th>
+          <th scope="col">Serious Critical</th>
+          <th scope="col">Active Cases</th>
+          <th scope="col">Total Cases Per Minutes</th>
+        </tr>
+      </thead>
+    <tbody>
+      {% for key in countries_stat %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ key.country_name }}</td>
+        <td>{{ key.cases }}</td>
+        <td>{{ key.deaths }}</td>
+        <td>{{ key.region }}</td>
+        <td>{{ key.total_recovered }}</td>
+        <td>{{ key.new_deaths }}</td>
+        <td>{{ key.new_cases }}</td>
+        <td>{{ key.serious_critical }}</td>
+        <td>{{ key.active_cases }}</td>
+        <td>{{ key.total_cases_per_1m_population }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+   {% endblock %}
 </body>
 </html>
